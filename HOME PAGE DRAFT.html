@@ -2,21 +2,93 @@
 <html>
 
 <head>
-
     <title>BayRoute Water Taxi</title>
     <script src="jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="home-stylesheet.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 
-
 <body>
+    <!--TICKETS POPUP MODEL-->
+    <div id="tickets-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="tickets-content">
+                <!--TICKETS CONTENT WILL BE ENTERED HERE-->
+                <form id="wholeticketform" class="form-group" onsubmit="return validateForm()">
+                    <div class="row">
+                        <div class="col-6">
 
+                            <div class="form-group">
+                                <label for="name">FULL NAME: <span class="required-star">*</span></label>
+                                <input type="text" min="2" class="form-control" id="name" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="email">EMAIL: <span class="required-star">*</span></label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="select-trip">CHOOSE TRIP: <span class="required-star">*</span></label>
+                                <select class="form-control" id="selecttrip" onchange="onTripChange()" required>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="select-deck">CHOOSE DECK: <span class="required-star">*</span></label>
+                                <select class="form-control" id="selectdeck" required></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="adultno">ADULT NO.: <span class="required-star">*</span></label>
+                                <input type="number" min="1" max="20" class="form-control" id="adultno" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="childno">CHILD NO.: <span class="required-star">*</span></label>
+                                <input type="number" min="0" max="20" class="form-control" id="childno" placeholder="0 if none" required>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="comment">COMMENTS/SPECIAL NEEDS:</label>
+                <textarea class="form-control" rows="3" id="comment"></textarea>
+                <br>
+                <div style="margin-left: 35%;">
+                    <div class=row>
+
+                        <span style="margin-right: 10px;">Total Price (L.L):</span>
+                        <input id="total-price" type="number" value="" style="width:20%; height:10%;" readonly></div>
+                </div>
+                <br>
+                <div style="text-align: center;">
+                    <div class="row">
+                        <div class="col">
+                            <button class="ticket-btn" type="submit" class="btn btn-default">SUBMIT</button>
+                        </div>
+                        <div class="col">
+                            <button class="ticket-btn" type="reset" onclick="resetFunction()" class="btn btn-default">RESET</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="container">
-
         <div style="text-align: center;">
             <img id="logo" src="icons/logo.PNG" alt="logo">
         </div>
@@ -35,13 +107,9 @@
                 <a class="nav-link nav-item" href="# ">Schedule</a>
                 <a class="nav-link nav-item" href="Trade Points/index.html">Trade Points</a>
                 <a class="nav-link nav-item" href="# ">Contact Us</a>
-
-
             </div>
         </nav>
-
         <br>
-
         <div id="row justify-content-center ">
             <div class="col-auto center-text ">
                 <p id="points"> You Have 2000 Points. Click Here To Redeem! </p>
@@ -54,114 +122,12 @@
         </div>
         <br>
         <!-- The 3 Cards -->
-
         <div class="row">
             <div class="col-md-4 col-12">
                 <div class="card" style="width: 18rem;">
                     <img id="tickets-card" class="card-img-top" src="icons/tickets2.png" alt="Tickets & Offers">
                     <div class="card-body">
                         <h5 class="card-title">Tickets & Offers</h5>
-
-                        <!--TICKETS POPUP MODEL-->
-                        <div id="tickets-modal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <div id="tickets-content">
-
-
-
-                                    <!--TICKETS CONTENT WILL BE ENTERED HERE-->
-                                    <form id="wholeticketform" class="form-group" onsubmit="return validateForm()" onchange="disableDrop()">
-                                        <div class="row">
-                                            <div class="col-6">
-
-                                                <div class="form-group">
-                                                    <label for="name">FULL NAME: <span class="required-star">*</span></label>
-                                                    <input type="text" min="2" class="form-control" id="name" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="email">EMAIL: <span class="required-star">*</span></label>
-                                                    <input type="email" class="form-control" id="email" required>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-
-                                                <div class="form-group">
-                                                    <label for="select-trip">CHOOSE TRIP: <span class="required-star">*</span></label>
-                                                    <select class="form-control" id="selecttrip" required>
-                                                        <option value="">Please Choose Your Trip</option>
-                                                        <option value="express">#100 BEY-TRI (EXPRESS)</option>
-                                                        <option value="standard">#200 BEY- SID (STANDARD)</option>
-                                                        <option value="standard">#300 BEY-BYB (STANDARD)</option>
-                                                        <option value="express">#400 TYR-BEI (EXPRESS)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="select-deck">CHOOSE DECK: <span class="required-star">*</span></label>
-                                                    <select class="form-control" id="selectdeck" required>
-                                                        <option value="">Please Choose Your Deck</option>
-                                                        <option>UPPER DECK (7000 L.L)</option>
-                                                        <option>LOWER DECK (3000 L.L)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="adultno">ADULT NO.: <span class="required-star">*</span></label>
-                                                    <input type="number" min="1" max="20" class="form-control" id="adultno" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="childno">CHILD NO.: <span class="required-star">*</span></label>
-                                                    <input type="number" min="0" max="20" class="form-control" id="childno" placeholder="0 if none" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="comment">COMMENTS/SPECIAL NEEDS:</label>
-                                    <textarea class="form-control" rows="3" id="comment"></textarea>
-                                    <br>
-                                    <div style="margin-left: 35%;">
-                                        <div class=row>
-
-                                            <span style="margin-right: 10px;">Total Price (L.L):</span>
-                                            <input id="total-price" type="number" value="" style="width:20%; height:10%;" readonly></div>
-                                    </div>
-                                    <br>
-                                    <div style="text-align: center;">
-                                        <div class="row">
-                                            <div class="col">
-                                                <button class="ticket-btn" type="submit" class="btn btn-default">SUBMIT</button>
-                                            </div>
-                                            <div class="col">
-                                                <button class="ticket-btn" type="reset" onclick="resetFunction()" class="btn btn-default">RESET</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                    </form>
-
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
