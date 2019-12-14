@@ -17,10 +17,9 @@
             <span class="close">&times;</span>
             <div id="tickets-content">
                 <!--TICKETS CONTENT WILL BE ENTERED HERE-->
-                <form id="wholeticketform" class="form-group" onsubmit="return validateForm()">
+                <form id="wholeticketform" method="GET" class="form-group" onsubmit="validateForm()">
                     <div class="row">
                         <div class="col-6">
-
                             <div class="form-group">
                                 <label for="name">FULL NAME: <span class="required-star">*</span></label>
                                 <input type="text" min="2" class="form-control" id="name" required>

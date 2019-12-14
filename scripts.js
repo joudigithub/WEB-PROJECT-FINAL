@@ -114,10 +114,8 @@ $(document).ready(function() {
     //         alert("Please Choose A Trip")
     //         return false;
     //     }
-    //     return true;
+    //     return true
     // }
-
-
 })
 window.onclick = function(event) {
     if (event.target == document.getElementById('tickets-modal')) {
