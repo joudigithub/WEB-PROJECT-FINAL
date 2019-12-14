@@ -38,15 +38,20 @@ var trips = [{
     },
 ]
 
+function calculatePrice() {
+    if ($('#selecttrip').children("option:selected").val() != '' && $('#selectdeck').children("option:selected").val() != '') {
+        $('#total-price').html($('#selectdeck').val() * $('#adultno').val() + " $")
+    } else {
+        $('#total-price').html('0 $')
+    }
+}
+
 function onTripChange() {
     var selectedTrip = $('#selecttrip').children("option:selected").val()
 
     if (selectedTrip != '') {
         $('#selectdeck').prop('disabled', false)
         var options = '<option value="">Please Choose Your Deck</option>'
-        console.log(trips.find(trip => {
-            return trip.id == selectedTrip
-        }))
         trips.find(trip => {
             return trip.id == selectedTrip
         }).value.forEach(type => {
@@ -57,12 +62,16 @@ function onTripChange() {
         $('#selectdeck').prop('disabled', true)
         $('#selectdeck').html('<option value="">Please Choose Your Trip First</option>')
     }
+    calculatePrice();
+}
+
+function resetFunction() {
+    $('#wholeticketform').trigger("reset")
+    onTripChange()
 
 }
 
 $(document).ready(function() {
-
-
     // init options
     (function() {
         $('#selectdeck').prop('disabled', true)
@@ -108,17 +117,7 @@ $(document).ready(function() {
     //     return true;
     // }
 
-    // function resetFunction() {
-    //     document.getElementById("whole-ticket-form").reset();
-    // }
-    // //Form Price Calculation
 
-    // function pricecalculation() {
-    //     var select_deck = document.getElementById("select-deck").value;
-    //     var adult_number = document.getElementById("adultno").value;
-    //     var total_price = select_deck * adult_number;
-    //     document.getElementById("total_price").value = total_price;
-    // }
 })
 window.onclick = function(event) {
     if (event.target == document.getElementById('tickets-modal')) {

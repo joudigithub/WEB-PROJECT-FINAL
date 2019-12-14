@@ -107,6 +107,16 @@ html {
     cursor: pointer;
 }
 
+priceBox {
+    width: 20%;
+    height: 10%;
+    border: 1px solid #ced4da;
+    color: #495057;
+    border-radius: .25rem;
+    padding-left: .3rem;
+    padding-right: .3rem;
+}
+
 
 /* MODAL CSS*/
 

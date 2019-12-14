@@ -44,7 +44,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="select-deck">CHOOSE DECK: <span class="required-star">*</span></label>
-                                <select class="form-control" id="selectdeck" required></select>
+                                <select class="form-control" id="selectdeck" onchange="calculatePrice()" required></select>
                             </div>
                         </div>
                     </div>
@@ -52,13 +52,13 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="adultno">ADULT NO.: <span class="required-star">*</span></label>
-                                <input type="number" min="1" max="20" class="form-control" id="adultno" required>
+                                <input type="number" min="1" max="20" class="form-control" id="adultno" value="1" onchange="calculatePrice()" required>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="childno">CHILD NO.: <span class="required-star">*</span></label>
-                                <input type="number" min="0" max="20" class="form-control" id="childno" placeholder="0 if none" required>
+                                <input type="number" min="0" max="20" class="form-control" id="childno" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,8 @@
                     <div class=row>
 
                         <span style="margin-right: 10px;">Total Price (L.L):</span>
-                        <input id="total-price" type="number" value="" style="width:20%; height:10%;" readonly></div>
+                        <priceBox id="total-price" readonly>0 $</priceBox>
+                    </div>
                 </div>
                 <br>
                 <div style="text-align: center;">
@@ -80,7 +81,7 @@
                             <button class="ticket-btn" type="submit" class="btn btn-default">SUBMIT</button>
                         </div>
                         <div class="col">
-                            <button class="ticket-btn" type="reset" onclick="resetFunction()" class="btn btn-default">RESET</button>
+                            <button class="ticket-btn" type="button" onclick="resetFunction()" class="btn btn-default">RESET</button>
                         </div>
                     </div>
                 </div>
