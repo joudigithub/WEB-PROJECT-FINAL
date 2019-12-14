@@ -17,7 +17,9 @@
 
 
 <body>
+
     <div class="container">
+
         <div style="text-align: center;">
             <img id="logo" src="icons/logo.PNG" alt="logo">
         </div>
@@ -28,13 +30,13 @@
             </button>
 
             <div class="collapse navbar-collapse nav-fill" id="collapsibleNavbar">
-                <a class="nav-link nav-item" href="Profile Page Draft.html">My Profile</a>
-                <a class="nav-link nav-item" href="HOME PAGE DRAFT.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link nav-item" href="Profile/index.html">My Profile</a>
+                <a class="nav-link nav-item" href="index.html">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-link nav-item" href="# ">About Us</a>
-                <a class="nav-link nav-item" href="# ">Tickets & Offers</a>
+                <a class="nav-link nav-item" href="#" id="tickets-link">Tickets & Offers</a>
                 <a class="nav-link nav-item" href="# ">Destinations</a>
                 <a class="nav-link nav-item" href="# ">Schedule</a>
-                <a class="nav-link nav-item" href="Trade Points Page Draft.html">Trade Points</a>
+                <a class="nav-link nav-item" href="Trade Points/index.html">Trade Points</a>
                 <a class="nav-link nav-item" href="# ">Contact Us</a>
 
 
@@ -62,7 +64,6 @@
                     <img id="tickets-card" class="card-img-top" src="icons/tickets2.png" alt="Tickets & Offers">
                     <div class="card-body">
                         <h5 class="card-title">Tickets & Offers</h5>
-                        <h6 class="card-title"><br></h6>
 
                         <!--TICKETS POPUP MODEL-->
                         <div id="tickets-modal" class="modal">
@@ -73,57 +74,44 @@
 
 
                                     <!--TICKETS CONTENT WILL BE ENTERED HERE-->
-                                    <form id="whole-ticket-form" class="form-group" onsubmit="return validateForm()" onchange="pricecalculation()">
+                                    <form id="wholeticketform" class="form-group" onsubmit="return validateForm()" onchange="disableDrop()">
                                         <div class="row">
                                             <div class="col-6">
 
                                                 <div class="form-group">
-                                                    <label for="name">FULL NAME: <span class="required-star">*</span> </label>
-                                                    <input type="text" class="form-control" id="name" required>
+                                                    <label for="name">FULL NAME: <span class="required-star">*</span></label>
+                                                    <input type="text" min="2" class="form-control" id="name" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="email">EMAIL: <span class="required-star">*</span> </label>
+                                                    <label for="email">EMAIL: <span class="required-star">*</span></label>
                                                     <input type="email" class="form-control" id="email" required>
                                                 </div>
                                             </div>
 
                                         </div>
                                         <div class="row">
-                                            <div class="col-3">
+                                            <div class="col-6">
 
                                                 <div class="form-group">
-                                                    <label for="select-trip">FROM: <span class="required-star">*</span> </label>
-                                                    <select class="form-control" id="start" required>
-                                                        <option value="" >Please Choose Departure</option>
-                                                        <option value="tyre">Tyre</option>
-                                                        <option value="saida">Saida</option>
-                                                        <option value="beirut">Beirut</option>
-                                                        <option value="tripoli">Tripoli</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-
-                                                <div class="form-group">
-                                                    <label for="select-trip">TO: <span class="required-star">*</span> </label>
-                                                    <select class="form-control" id="end" required>
-                                                        <option value="" >Please Choose Destination</option>
-                                                        <option value="tyre">Tyre</option>
-                                                        <option value="saida">Saida</option>
-                                                        <option value="beirut">Beirut</option>
-                                                        <option value="tripoli">Tripoli</option>
+                                                    <label for="select-trip">CHOOSE TRIP: <span class="required-star">*</span></label>
+                                                    <select class="form-control" id="selecttrip" required>
+                                                        <option value="">Please Choose Your Trip</option>
+                                                        <option value="express">#100 BEY-TRI (EXPRESS)</option>
+                                                        <option value="standard">#200 BEY- SID (STANDARD)</option>
+                                                        <option value="standard">#300 BEY-BYB (STANDARD)</option>
+                                                        <option value="express">#400 TYR-BEI (EXPRESS)</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="select-deck">CHOOSE DECK:<span class="required-star">*</span> </label>
-                                                    <select onchange="pricecalculation()" class="form-control" id="select-trip" required>
-                                                        <option value="5000">EXPRESS (5000 L.L)</option>
-                                                        <option value="7000">UPPER DECK (7000 L.L)</option>
-                                                        <option value="3000">LOWER DECK (3000 L.L)</option>
+                                                    <label for="select-deck">CHOOSE DECK: <span class="required-star">*</span></label>
+                                                    <select class="form-control" id="selectdeck" required>
+                                                        <option value="">Please Choose Your Deck</option>
+                                                        <option>UPPER DECK (7000 L.L)</option>
+                                                        <option>LOWER DECK (3000 L.L)</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -133,14 +121,14 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="adultno">ADULT NO.: <span class="required-star">*</span> </label>
-                                                    <input onchange="pricecalculation()" type="number" min="1" max="20" class="form-control" id="adultno" required>
+                                                    <label for="adultno">ADULT NO.: <span class="required-star">*</span></label>
+                                                    <input type="number" min="1" max="20" class="form-control" id="adultno" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="childno">CHILD NO.: <span class="required-star">*</span> </label>
-                                                    <input type="number" min="0" max="20" class="form-control" id="childno">
+                                                    <label for="childno">CHILD NO.: <span class="required-star">*</span></label>
+                                                    <input type="number" min="0" max="20" class="form-control" id="childno" placeholder="0 if none" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,21 +143,19 @@
                                         <div class=row>
 
                                             <span style="margin-right: 10px;">Total Price (L.L):</span>
-                                            <input id="total-price" type="number" style="width:20%; height:10%;" readonly></div>
+                                            <input id="total-price" type="number" value="" style="width:20%; height:10%;" readonly></div>
                                     </div>
                                     <br>
-                                    <div style="text-align: center; margin-left: auto; margin-right: auto;">
+                                    <div style="text-align: center;">
                                         <div class="row">
                                             <div class="col">
-                                                <button class="ticket-btn" type="submit" class="btn btn-default" onclick="ret()">SUBMIT</button>
+                                                <button class="ticket-btn" type="submit" class="btn btn-default">SUBMIT</button>
                                             </div>
-
                                             <div class="col">
                                                 <button class="ticket-btn" type="reset" onclick="resetFunction()" class="btn btn-default">RESET</button>
                                             </div>
-
-
                                         </div>
+
                                     </div>
 
 
@@ -182,27 +168,20 @@
                     </div>
                 </div>
             </div>
-            <!--destinations card-->
             <div class="col-md-4 col-12">
-                <a href="map.html" target="_blank">
-                    <div class="card" style="width: 18rem;">
-
-                        <img id="destination-card" class="card-img-top" src="icons/destiation2.png" alt="Destinations">
-                        <div class="card-body">
-                            <h5 class="card-title">Destinations</h5>
-                            <h6 class="card-title">Click to view your new map!</h6>
-                        </div>
+                <div class="card" style="width: 18rem;">
+                    <img id="destination-card" class="card-img-top" src="icons/destiation2.png" alt="Destinations">
+                    <div class="card-body">
+                        <h5 class="card-title">Destinations</h5>
 
                     </div>
-                </a>
+                </div>
             </div>
-            <!--schedule card-->
             <div class="col-md-4 col-12">
                 <div class="card" style="width: 18rem;">
                     <img id="schedule-card" class="card-img-top" src="icons/schedule2.png" alt="Schedule">
                     <div class="card-body">
                         <h5 class="card-title">Schedule</h5>
-                        <h6 class="card-title"><br></h6>
 
                     </div>
                 </div>
@@ -238,8 +217,16 @@
 
     </div>
 
-    <script type="text/javascript" src="google maps.js">
+
+    <!--
+    <script>
+        $("a#tickets-link").onclick = function() {
+
+            $("ticket-modal").css('display', 'block')
+        };
     </script>
+-->
+
 </body>
 
 
