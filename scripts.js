@@ -61,10 +61,12 @@ function onTripChange() {
 }
 
 $(document).ready(function() {
-    $('#selectdeck').prop('disabled', false)
+
 
     // init options
     (function() {
+        $('#selectdeck').prop('disabled', true)
+        $('#selectdeck').html('<option value="">Please Choose Your Trip First</option>')
         var tripOptions = '<option value="">Please Choose Your Trip</option>'
         trips.forEach(trip => {
             tripOptions += `<option value="${trip.id}">${trip.name}</option>`
@@ -89,16 +91,12 @@ $(document).ready(function() {
     // span2.click(function() {
     //     $("#destination-modal").style.display = "none";
     // });
-    window.onclick = function(event) {
-            if (event.target == $("#tickets-modal")) {
-                $("#tickets-modal").style.display = "none";
-            }
-        }
-        // window.onclick = function(event) {
-        //     if (event.target == modal2) {
-        //         $("#destination-modal").style.display = "none";
-        //     }
-        // }
+
+    // window.onclick = function(event) {
+    //     if (event.target == modal2) {
+    //         $("#destination-modal").style.display = "none";
+    //     }
+    // }
 
     //Validate Form
     // function validateForm() {
@@ -122,3 +120,8 @@ $(document).ready(function() {
     //     document.getElementById("total_price").value = total_price;
     // }
 })
+window.onclick = function(event) {
+    if (event.target == document.getElementById('tickets-modal')) {
+        document.getElementById('tickets-modal').style.display = "none";
+    }
+}
