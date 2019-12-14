@@ -1,0 +1,209 @@
+    body {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        /*background-color: rgb(13, 66, 143); */
+        background-image: url("icons/blue bg.jpg");
+        background-size: 20%;
+    }
+    
+    #footer {
+        background-color: rgb(13, 66, 143);
+        border-radius: 25px;
+    }
+    
+    #footer>div {
+        text-align: center;
+    }
+    
+    .avatar {
+        vertical-align: middle;
+        width: 90%;
+        height: 150%;
+        border-radius: 50%;
+    }
+    
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        font-family: "supra genius curves brk";
+        border: 1px dotted rgb(13, 66, 143);
+        border-radius: 25px;
+        background-color: white;
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    
+    #logo {
+        width: 30%;
+        height: 30%;
+    }
+    /* Trying with navbar css*/
+    
+    a {
+        color: rgb(13, 66, 143) !important;
+    }
+    /*  Done trying*/
+    
+    .btn-outline-success {
+        border-color: rgb(13, 66, 143);
+        color: rgb(13, 66, 143);
+    }
+    
+    .btn-outline-success:hover {
+        background-color: rgb(13, 66, 143);
+        border-color: rgb(13, 66, 143);
+        color: white;
+    }
+    
+    .btn-outline-success:active {
+        background-color: rgb(255, 209, 0) !important;
+        border-color: rgb(255, 209, 0) !important;
+        color: white;
+        box-shadow: rgb(255, 209, 0) !important;
+    }
+    
+    #footer-contact {
+        text-align: justify;
+        color: rgb(255, 209, 0);
+    }
+    
+    #social-btns {
+        text-align: right;
+        max-width: 100%;
+    }
+    
+    html {
+        font-size: 1rem;
+    }
+    
+    @media (min-width: 576px) {
+        html {
+            font-size: 1.2rem;
+        }
+        .bg-light {
+            background-color: white !important;
+            border-width: 1px;
+            border-color: rgb(13, 66, 143);
+        }
+        a {
+            font-size: 1.05rem;
+        }
+        #description {
+            font-size: 1em !important;
+        }
+        .offer-image:hover {
+            z-index: 1;
+            -ms-transform: scale(2);
+            /* IE 9 */
+            -webkit-transform: scale(2);
+            /* Safari 3-8 */
+            transform: scale(2);
+        }
+    }
+    
+    @media (min-width: 768px) {
+        html {
+            font-size: 1.4rem;
+        }
+        .bg-light {
+            background-color: white !important;
+            border-width: 1px;
+            border-color: rgb(13, 66, 143);
+        }
+        a {
+            font-size: 1.05rem;
+        }
+        #description {
+            font-size: 1em !important;
+        }
+        .offer-image:hover {
+            z-index: 1;
+            -ms-transform: scale(2);
+            /* IE 9 */
+            -webkit-transform: scale(2);
+            /* Safari 3-8 */
+            transform: scale(2);
+        }
+    }
+    
+    @media (min-width: 992px) {
+        html {
+            font-size: 1.6rem;
+        }
+        #points {
+            max-width: 40%;
+        }
+        .bg-light {
+            background-color: white !important;
+            border-width: 1px;
+            border-color: rgb(13, 66, 143);
+        }
+        a {
+            font-size: 1.05rem;
+        }
+        #description {
+            font-size: 1em !important;
+            color: rgb(13, 66, 143);
+        }
+        .offer-image:hover {
+            z-index: 1;
+            -ms-transform: scale(2.8);
+            /* IE 9 */
+            -webkit-transform: scale(2.8);
+            /* Safari 3-8 */
+            transform: scale(2.8);
+        }
+    }
+    /*Card CSS*/
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+        margin: auto;
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: supra genius curves brk;
+    }
+    
+    .price {
+        color: rgb(13, 66, 143);
+        font-size: 1.3em;
+    }
+    
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 2%;
+        color: rgb(255, 209, 0);
+        background-color: rgb(13, 66, 143);
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 0.8em;
+    }
+    
+    .card button:hover {
+        opacity: 0.7;
+    }
+    
+    #description {
+        font-size: 0.8em;
+        color: rgb(13, 66, 143) !important;
+        font-family: supra genius curves brk;
+    }
+    
+    .offer-image {
+        padding: 10px;
+        transition: transform .2s;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    #copyright {
+        margin-top: 50%;
+        color: rgb(255, 209, 0)
+    }
