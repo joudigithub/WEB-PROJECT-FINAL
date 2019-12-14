@@ -99,16 +99,12 @@ html {
     font-size: 1rem;
 }
 
-#tickets-card {
+.card-img-top {
     width: 25%;
 }
 
-#destination-card {
-    width: 25%;
-}
-
-#schedule-card {
-    width: 25%;
+#tickets-card:hover {
+    cursor: pointer;
 }
 
 
@@ -276,14 +272,8 @@ html {
     html {
         font-size: 1.4rem;
     }
-    #tickets-card {
+    .card-img-top {
         width: 50%;
-    }
-    #destination-card {
-        width: 41%;
-    }
-    #schedule-card {
-        width: 54%;
     }
     #points {
         max-width: 40%;
@@ -308,16 +298,8 @@ html {
     .nav-link {
         padding: 0;
     }
-    #tickets-card {
+    .card-img-top {
         width: 50%;
-        max-width: 100%;
-    }
-    #destination-card {
-        width: 41%;
-        max-width: 100%;
-    }
-    #schedule-card {
-        width: 54%;
         max-width: 100%;
     }
     #points {

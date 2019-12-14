@@ -6,17 +6,125 @@
     <script src="jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <link href="home-stylesheet.css" rel="stylesheet">
-    <script type="text/javascript" src="scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
 
 <body>
+    <!--TICKETS POPUP MODEL-->
+    <div id="tickets-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="tickets-content">
+                <!--TICKETS CONTENT WILL BE ENTERED HERE-->
+                <form id="whole-ticket-form" class="form-group" onsubmit="return validateForm()" onchange="pricecalculation()">
+                    <div class="row">
+                        <div class="col-6">
+
+                            <div class="form-group">
+                                <label for="name">FULL NAME: <span class="required-star">*</span> </label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="email">EMAIL: <span class="required-star">*</span> </label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+
+                            <div class="form-group">
+                                <label for="select-trip">FROM: <span class="required-star">*</span> </label>
+                                <select class="form-control" id="start" required>
+                                        <option value="" >Please Choose Departure</option>
+                                        <option value="tyre">Tyre</option>
+                                        <option value="saida">Saida</option>
+                                        <option value="beirut">Beirut</option>
+                                        <option value="tripoli">Tripoli</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+
+                            <div class="form-group">
+                                <label for="select-trip">TO: <span class="required-star">*</span> </label>
+                                <select class="form-control" id="end" required>
+                                        <option value="" >Please Choose Destination</option>
+                                        <option value="tyre">Tyre</option>
+                                        <option value="saida">Saida</option>
+                                        <option value="beirut">Beirut</option>
+                                        <option value="tripoli">Tripoli</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="select-deck">CHOOSE DECK:<span class="required-star">*</span> </label>
+                                <select onchange="pricecalculation()" class="form-control" id="select-trip" required>
+                                        <option value="5000">EXPRESS (5000 L.L)</option>
+                                        <option value="7000">UPPER DECK (7000 L.L)</option>
+                                        <option value="3000">LOWER DECK (3000 L.L)</option>
+                                    </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="adultno">ADULT NO.: <span class="required-star">*</span> </label>
+                                <input onchange="pricecalculation()" type="number" min="1" max="20" class="form-control" id="adultno" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="childno">CHILD NO.: <span class="required-star">*</span> </label>
+                                <input type="number" min="0" max="20" class="form-control" id="childno">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="comment">COMMENTS/SPECIAL NEEDS:</label>
+                <textarea class="form-control" rows="3" id="comment"></textarea>
+                <br>
+                <div style="margin-left: 35%;">
+                    <div class=row>
+
+                        <span style="margin-right: 10px;">Total Price (L.L):</span>
+                        <input id="total-price" type="number" style="width:20%; height:10%;" readonly></div>
+                </div>
+                <br>
+                <div style="text-align: center; margin-left: auto; margin-right: auto;">
+                    <div class="row">
+                        <div class="col">
+                            <button class="ticket-btn" type="submit" class="btn btn-default" onclick="ret()">SUBMIT</button>
+                        </div>
+
+                        <div class="col">
+                            <button class="ticket-btn" type="reset" onclick="resetFunction()" class="btn btn-default">RESET</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
     <div class="container">
         <div style="text-align: center;">
             <img id="logo" src="icons/logo.PNG" alt="logo">
@@ -57,128 +165,12 @@
         <!-- The 3 Cards -->
 
         <div class="row">
-            <div class="col-md-4 col-12">
+            <div id="tickets-card" class="col-md-4 col-12">
                 <div class="card" style="width: 18rem;">
-                    <img id="tickets-card" class="card-img-top" src="icons/tickets2.png" alt="Tickets & Offers">
+                    <img class="card-img-top" src="icons/tickets2.png" alt="Tickets & Offers">
                     <div class="card-body">
                         <h5 class="card-title">Tickets & Offers</h5>
                         <h6 class="card-title"><br></h6>
-
-                        <!--TICKETS POPUP MODEL-->
-                        <div id="tickets-modal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <div id="tickets-content">
-
-
-
-                                    <!--TICKETS CONTENT WILL BE ENTERED HERE-->
-                                    <form id="whole-ticket-form" class="form-group" onsubmit="return validateForm()" onchange="pricecalculation()">
-                                        <div class="row">
-                                            <div class="col-6">
-
-                                                <div class="form-group">
-                                                    <label for="name">FULL NAME: <span class="required-star">*</span> </label>
-                                                    <input type="text" class="form-control" id="name" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="email">EMAIL: <span class="required-star">*</span> </label>
-                                                    <input type="email" class="form-control" id="email" required>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-3">
-
-                                                <div class="form-group">
-                                                    <label for="select-trip">FROM: <span class="required-star">*</span> </label>
-                                                    <select class="form-control" id="start" required>
-                                                        <option value="" >Please Choose Departure</option>
-                                                        <option value="tyre">Tyre</option>
-                                                        <option value="saida">Saida</option>
-                                                        <option value="beirut">Beirut</option>
-                                                        <option value="tripoli">Tripoli</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-
-                                                <div class="form-group">
-                                                    <label for="select-trip">TO: <span class="required-star">*</span> </label>
-                                                    <select class="form-control" id="end" required>
-                                                        <option value="" >Please Choose Destination</option>
-                                                        <option value="tyre">Tyre</option>
-                                                        <option value="saida">Saida</option>
-                                                        <option value="beirut">Beirut</option>
-                                                        <option value="tripoli">Tripoli</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="select-deck">CHOOSE DECK:<span class="required-star">*</span> </label>
-                                                    <select onchange="pricecalculation()" class="form-control" id="select-trip" required>
-                                                        <option value="5000">EXPRESS (5000 L.L)</option>
-                                                        <option value="7000">UPPER DECK (7000 L.L)</option>
-                                                        <option value="3000">LOWER DECK (3000 L.L)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="adultno">ADULT NO.: <span class="required-star">*</span> </label>
-                                                    <input onchange="pricecalculation()" type="number" min="1" max="20" class="form-control" id="adultno" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="childno">CHILD NO.: <span class="required-star">*</span> </label>
-                                                    <input type="number" min="0" max="20" class="form-control" id="childno">
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="comment">COMMENTS/SPECIAL NEEDS:</label>
-                                    <textarea class="form-control" rows="3" id="comment"></textarea>
-                                    <br>
-                                    <div style="margin-left: 35%;">
-                                        <div class=row>
-
-                                            <span style="margin-right: 10px;">Total Price (L.L):</span>
-                                            <input id="total-price" type="number" style="width:20%; height:10%;" readonly></div>
-                                    </div>
-                                    <br>
-                                    <div style="text-align: center; margin-left: auto; margin-right: auto;">
-                                        <div class="row">
-                                            <div class="col">
-                                                <button class="ticket-btn" type="submit" class="btn btn-default" onclick="ret()">SUBMIT</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button class="ticket-btn" type="reset" onclick="resetFunction()" class="btn btn-default">RESET</button>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-
-                                    </form>
-
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -238,8 +230,10 @@
 
     </div>
 
-    <script type="text/javascript" src="google maps.js">
-    </script>
+    <!-- <script type="text/javascript" src="google maps.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 
