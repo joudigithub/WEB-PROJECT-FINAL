@@ -1,0 +1,55 @@
+            .card-img-top {
+                width: 30px;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            
+            .btn-info {
+                color: #fff;
+                background-color: rgb(13, 66, 143);
+                border-color: #17a2b8;
+            }
+            
+            .card-title {
+                position: relative;
+                margin-left: 43px;
+                font-size: 28px;
+            }
+            
+            .card {
+                border: none;
+            }
+            
+            .PositionRelative {
+                position: relative;
+            }
+            
+            @media (min-width: 576px) {
+                textarea {
+                    overflow: auto;
+                    resize: vertical;
+                }
+                a {
+                    font-size: 1.05rem;
+                }
+            }
+            
+            @media (min-width: 768px) {
+                textarea {
+                    overflow: auto;
+                    resize: vertical;
+                }
+                a {
+                    font-size: 0.8rem;
+                }
+            }
+            
+            @media (min-width: 992px) {
+                a {
+                    font-size: 1.2rem;
+                }
+                .telephone {
+                    font-size: 0.8rem;
+                }
+            }

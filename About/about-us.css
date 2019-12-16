@@ -1,0 +1,115 @@
+dl.faq button {
+    margin: 0;
+    padding: 0;
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 110%;
+    border: thin solid transparent;
+    background-color: transparent;
+    padding-left: 0.125em;
+}
+
+dl dd {
+    margin: 0;
+    padding: 0;
+    margin-left: 1.5em;
+}
+
+dl.faq .desc {
+    margin: 0;
+    padding: 0.5em;
+    font-size: 110%;
+    display: none;
+    background-color: rgb(255, 209, 0);
+}
+
+dl.faq button:hover,
+dl.faq button:focus {
+    background-color: #eee;
+}
+
+dl.faq button:focus {
+    border-color: #630;
+}
+
+dl.faq button:hover {
+    text-decoration: underline;
+}
+
+dl.faq button:active {
+    background-color: #bbb;
+}
+
+dl.faq button[aria-expanded="false"]::before {
+    content: url('../images/right-arrow-brown.png');
+    padding-right: 0.35em;
+}
+
+dl.faq button[aria-expanded="true"]::before {
+    content: url('../images/down-arrow-brown.png');
+    padding-right: 0.35em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 50px;
+    word-break: break-all;
+}
+
+.row {
+    margin: 8px -16px;
+}
+
+
+/* Add padding BETWEEN each column (if you want) */
+
+.row,
+.row>.column {
+    padding: 8px;
+}
+
+
+/* Create four equal columns that floats next to each other */
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+
+/* Clear floats after rows */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Content */
+
+.content {
+    background-color: white;
+    padding: 10px;
+}
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+
+@media screen and (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 25%;
+    }
+}

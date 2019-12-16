@@ -12,7 +12,7 @@ var value = {
     ],
     express: [{
         id: 3,
-        name: 'Express (5,000 L.L.',
+        name: 'Express (5,000 L.L.)',
         value: 5000,
     }]
 }
@@ -40,9 +40,9 @@ var trips = [{
 
 function calculatePrice() {
     if ($('#selecttrip').children("option:selected").val() != '' && $('#selectdeck').children("option:selected").val() != '') {
-        $('#total-price').html($('#selectdeck').val() * $('#adultno').val() + " $")
+        $('#total-price').html($('#selectdeck').val() * $('#adultno').val() + " L.L")
     } else {
-        $('#total-price').html('0 $')
+        $('#total-price').html('0 L.L')
     }
 }
 
@@ -87,19 +87,19 @@ $(document).ready(function() {
     var btn = $("#tickets-card");
     var btn2 = $("#destination-card");
     var span = $(".close");
-    //var span2 = $(".close")[1];
+    var span2 = $(".close");
     btn.click(function() {
         $("#tickets-modal").css('display', 'block');
     });
-    // btn2.click(function() {
-    //     $("#destination-modal").css('display', 'block');
-    // });
+    btn2.click(function() {
+        $("#destination-modal").css('display', 'block');
+    });
     span.click(function() {
         $("#tickets-modal").css('display', 'none');
     });
-    // span2.click(function() {
-    //     $("#destination-modal").style.display = "none";
-    // });
+    span2.click(function() {
+        $("#destination-modal").css('display', "none");
+    });
 
     // window.onclick = function(event) {
     //     if (event.target == modal2) {
@@ -120,5 +120,10 @@ $(document).ready(function() {
 window.onclick = function(event) {
     if (event.target == document.getElementById('tickets-modal')) {
         document.getElementById('tickets-modal').style.display = "none";
+    }
+}
+window.onclick = function(event) {
+    if (event.target == document.getElementById('destination-modal')) {
+        document.getElementById('destination-modal').style.display = "none";
     }
 }

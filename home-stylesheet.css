@@ -147,6 +147,7 @@ priceBox {
 /* Modal Content Box */
 
 .modal-content {
+    font-family: 'supra genius curves brk';
     position: absolute;
     margin: 2% !important;
     margin-left: 10% !important;
@@ -296,6 +297,15 @@ priceBox {
     a {
         font-size: 1.05rem;
     }
+    #destination-card {
+        width: 40%;
+    }
+    #schedule-card {
+        width: 56%;
+    }
+    .nav-link {
+        padding: 0.2rem !important;
+    }
 }
 
 
@@ -322,5 +332,11 @@ priceBox {
     }
     a {
         font-size: 1.05rem;
+    }
+    #destination-card {
+        width: 40%;
+    }
+    #schedule-card {
+        width: 56%;
     }
 }
