@@ -1,0 +1,134 @@
+#map {
+    height: 100%;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+
+body {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-image: url("icons/blue bg.jpg");
+        background-size: 15%; 
+}
+
+#footer {
+    background-color: rgb(13, 66, 143);
+    border-radius: 25px;
+}
+
+#footer>div {
+    text-align: center;
+}
+
+.container {
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: "supra genius curves brk";
+    border: 1px dotted rgb(13, 66, 143);
+    border-radius: 25px;
+    background-color: white;
+}
+
+.center-text {
+    text-align: center;
+}
+
+#logo {
+    width: 30%;
+    height: 30%;
+}
+
+
+/*#points {
+    border: 2px dotted rgb(13, 66, 143);
+    background-color: rgb(255, 209, 0);
+    color: rgb(13, 66, 143);
+    max-width: 500px;
+    display: inline-block;
+    padding: 2%;
+}
+*/
+
+.btn-outline-success {
+    border-color: rgb(13, 66, 143);
+    color: rgb(13, 66, 143);
+}
+
+.btn-outline-success:hover {
+    background-color: rgb(13, 66, 143);
+    border-color: rgb(13, 66, 143);
+    color: white;
+}
+
+.btn-outline-success:active {
+    background-color: rgb(255, 209, 0) !important;
+    border-color: rgb(255, 209, 0) !important;
+    color: white;
+    box-shadow: rgb(255, 209, 0) !important;
+}
+
+#rawshe-img {
+    width: 100%;
+    border-radius: 25px;
+}
+
+#rawshe-txt {
+    text-align: center;
+    color: rgb(13, 66, 143);
+    font-family: myriad pro;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+div.card {
+    width: 100% !important;
+}
+
+.card-img-top {
+    padding-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-title {
+    text-align: center;
+}
+
+#footer-contact {
+    text-align: justify;
+    color: rgb(255, 209, 0);
+}
+
+#social-btns {
+    text-align: right;
+    max-width: 100%;
+}
+
+html {
+    font-size: 1rem;
+}
+
+@media (min-width: 300px) {
+    html {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 576px) {
+    html {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    html {
+        font-size: 1.6rem;
+    }
+}
